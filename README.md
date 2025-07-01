@@ -19,9 +19,6 @@ javac calculadora/ICalculadora.java Cliente.java
 2. Executar o Servidor
 No terminal do servidor:
 
-bash
-Copiar
-Editar
 cd servidor
 java Servidor
 O servidor irá:
@@ -37,9 +34,7 @@ Aguardar conexões simultâneas
 3. Executar o Cliente
 No terminal do cliente:
 
-bash
-Copiar
-Editar
+
 cd cliente
 java Cliente
 O cliente irá:
@@ -62,9 +57,6 @@ Multiplicação	multiplica, multiplicar	Multiplicação de dois números
 Divisão	divide, dividir	Divisão de dois números
 
 📝 Exemplo de Uso
-text
-Copiar
-Editar
 Digite o IP ou hostname do servidor (ex: 127.0.0.1 ou localhost): localhost
 
 == Cliente RMI da Calculadora ==
