@@ -2,22 +2,6 @@
 
 Este projeto implementa um sistema distribuído de calculadora usando Java RMI (Remote Method Invocation), onde um servidor centraliza as operações matemáticas e múltiplos clientes podem se conectar remotamente para realizar cálculos.
 
-## 📁 Estrutura do Projeto
-
-calculadora-rmi/
-├── servidor/
-│ ├── calculadora/
-│ │ ├── ICalculadora.java # Interface remota
-│ │ └── Calculadora.java # Implementação do serviço
-│ └── Servidor.java # Servidor RMI
-│
-├── cliente/
-│ ├── calculadora/
-│ │ └── ICalculadora.java # Interface remota (mesma do servidor)
-│ └── Cliente.java # Cliente RMI
-│
-└── README.md #
-
 ## 🚀 Como Usar
 
 ### 1. Compilação
