@@ -16,11 +16,7 @@ calculadora-rmi/
 │ │ └── ICalculadora.java # Interface remota (mesma do servidor)
 │ └── Cliente.java # Cliente RMI
 │
-└── README.md # Este arquivo
-
-bash
-Copiar
-Editar
+└── README.md #
 
 ## 🚀 Como Usar
 
