@@ -1,12 +1,6 @@
-# RMI_JAVA
+# Sistema Calculadora RMI
 
-# 🧮 Calculadora Distribuída com Java RMI
-
-Este repositório contém uma aplicação cliente-servidor desenvolvida em **Java**, utilizando **RMI (Remote Method Invocation)** para comunicação remota.
-
-O servidor oferece uma calculadora com quatro operações básicas, e múltiplos clientes podem se conectar simultaneamente ao serviço.
-
----
+Este projeto implementa um sistema distribuído de calculadora usando Java RMI (Remote Method Invocation), onde um servidor centraliza as operações matemáticas e múltiplos clientes podem se conectar remotamente para realizar cálculos.
 
 ## 📁 Estrutura do Projeto
 
@@ -15,42 +9,34 @@ calculadora-rmi/
 │ ├── calculadora/
 │ │ ├── ICalculadora.java # Interface remota
 │ │ └── Calculadora.java # Implementação do serviço
-│ └── Servidor.java # Classe principal do servidor
+│ └── Servidor.java # Servidor RMI
 │
 ├── cliente/
 │ ├── calculadora/
 │ │ └── ICalculadora.java # Interface remota (mesma do servidor)
-│ └── Cliente.java # Classe principal do cliente
+│ └── Cliente.java # Cliente RMI
 │
-└── README.md
----
+└── README.md # Este arquivo
 
-## ⚙️ Requisitos
-
-- Java JDK 8 ou superior
-- Nenhuma biblioteca externa
-- Terminal para compilar e executar os arquivos `.java`
-
----
-
-## 🚀 Como Executar
-
-### 1. Compile os projetos
-
-Abra dois terminais diferentes para compilar o servidor e o cliente.
-
-#### 🔧 Servidor
-
-```bash
-cd servidor
-javac calculadora/*.java Servidor.java
-💻 Cliente
 bash
 Copiar
 Editar
+
+## 🚀 Como Usar
+
+### 1. Compilação
+
+Abra dois terminais para compilar servidor e cliente separadamente.
+
+```bash
+# Terminal 1 - servidor
+cd servidor
+javac calculadora/*.java Servidor.java
+
+# Terminal 2 - cliente
 cd cliente
 javac calculadora/ICalculadora.java Cliente.java
-2. Execute o servidor
+2. Executar o Servidor
 No terminal do servidor:
 
 bash
@@ -58,15 +44,17 @@ Copiar
 Editar
 cd servidor
 java Servidor
-O servidor:
+O servidor irá:
 
-Escutará na porta 1099 (padrão do RMI)
+Iniciar na porta 1099 (padrão RMI)
 
-Registrará o serviço com o nome fixo: "CalculadoraService"
+Registrar o serviço como "CalculadoraService"
 
-Exibirá no console cada operação solicitada pelos clientes
+Exibir no console as operações solicitadas pelos clientes
 
-3. Execute o cliente
+Aguardar conexões simultâneas
+
+3. Executar o Cliente
 No terminal do cliente:
 
 bash
@@ -74,29 +62,48 @@ Copiar
 Editar
 cd cliente
 java Cliente
-O cliente:
+O cliente irá:
 
-Solicita o IP ou hostname do servidor (localhost, por exemplo)
+Solicitar o IP ou hostname do servidor (ex: localhost)
 
-Pede ao usuário a operação desejada (soma, subtrai, multiplica, divide)
+Permitir escolher a operação (soma, subtrai, multiplica, divide)
 
-Solicita os dois números
+Solicitar os dois operandos
 
-Exibe o resultado recebido do servidor
+Exibir o resultado retornado pelo servidor
 
-Continua até o usuário digitar sair
+Permitir envio contínuo de operações até digitar sair
 
-🧪 Exemplo de Uso
+🔧 Operações Disponíveis
+Operação	Comandos aceitos	Descrição
+Soma	soma, somar	Adição de dois números
+Subtração	subtrai, subtrair	Subtração de dois números
+Multiplicação	multiplica, multiplicar	Multiplicação de dois números
+Divisão	divide, dividir	Divisão de dois números
+
+📝 Exemplo de Uso
 text
 Copiar
 Editar
 Digite o IP ou hostname do servidor (ex: 127.0.0.1 ou localhost): localhost
 
 == Cliente RMI da Calculadora ==
-Operações disponíveis: soma, subtrai, multiplica, divide
+Operações disponíveis: soma, subtrai, multiplica, divide  
 Digite 'sair' para encerrar
 
-Operação: multiplica
-Digite o primeiro número: 3
-Digite o segundo número: 4
+Operação: multiplica  
+Digite o primeiro número: 3  
+Digite o segundo número: 4  
 Resultado: 12.0
+🛠 Possíveis Erros
+Erro	Causa Provável	Solução
+Connection refused	Servidor não está rodando ou IP errado	Inicie o servidor e use o IP correto
+NotBoundException	Serviço não registrado corretamente	Verifique o nome "CalculadoraService"
+ClassNotFoundException	Interface ICalculadora ausente ou pacote incorreto	Verifique a interface no cliente
+
+🔒 Observações
+Toda lógica dos cálculos está no servidor
+
+Cliente apenas envia requisições e exibe resultados
+
+Suporte a múltiplos clientes simultâneos
